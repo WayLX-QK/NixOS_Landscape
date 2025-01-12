@@ -5,7 +5,7 @@
 
   fhs = pkgs.callPackage ./fhs {};
 
-  wemeet = pkgs.callPackage ./wemeet {};
+  # wemeet = pkgs.callPackage ./wemeet {};
 
   # yt6801 = pkgs.callPackage ./yt6801 {};
 }

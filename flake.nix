@@ -74,7 +74,7 @@
     forAllSystems = nixpkgs.lib.genAttrs systems;
     username = "waylx";
     outlook = "QK180455052@outlook.com";
-    gmail = "googleMail@gmail.com";
+    gmail = "google@gmail.com";
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -95,13 +95,13 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      W550-laptop = nixpkgs.lib.nixosSystem {
+      W550 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {inherit inputs outputs username outlook gmail;};
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
-          ./nixos/hosts/W550-laptop
+          ./nixos/hosts/W550
           nixos-hardware.nixosModules.tuxedo-pulse-14-gen3
           #nixos-hardware.nixosModules.common-cpu-amd
           nixos-hardware.nixosModules.common-cpu-amd-zenpower
@@ -124,13 +124,13 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      "waylx@W550-laptop" = home-manager.lib.homeManagerConfiguration {
+      "waylx@W550" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs username outlook gmail;};
         modules = [
           # > Our main home-manager configuration file <
           ./home-manager/home.nix
-          ./home-manager/hosts/W550-laptop.nix
+          ./home-manager/hosts/W550.nix
           {nixpkgs.overlays = [nur.overlays.default];}
           nur.modules.homeManager.default
         ];

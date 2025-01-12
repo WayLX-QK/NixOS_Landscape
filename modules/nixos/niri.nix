@@ -104,6 +104,7 @@
     upower.enable = true;
     power-profiles-daemon.enable = true;
     accounts-daemon.enable = true;
+    dbus.implementation = "broker";
     dbus.enable = true;
     dbus.packages = with pkgs; [
       xfce.xfconf

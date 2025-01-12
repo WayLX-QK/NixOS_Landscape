@@ -75,7 +75,7 @@
         # status: https://mirror.sjtu.edu.cn/
         # "https://mirror.sjtu.edu.cn/nix-channels/store"
         # status: https://mirrors.ustc.edu.cn/status/
-        "https://mirrors.ustc.edu.cn/nix-channels/store"
+        # "https://mirrors.ustc.edu.cn/nix-channels/store"
         "https://cache.nixos.org"
       ];
       trusted-public-keys = [
@@ -123,7 +123,7 @@
 
   # Enable sound.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
